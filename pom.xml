@@ -5,7 +5,7 @@
   <parent>
     <groupId>fr.univtln.m2dapm.stockmanagement</groupId>
     <artifactId>ParentPOM</artifactId>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1</version>
   </parent>
 
   <groupId>fr.univtln.m2dapm.stockmanagement</groupId>
