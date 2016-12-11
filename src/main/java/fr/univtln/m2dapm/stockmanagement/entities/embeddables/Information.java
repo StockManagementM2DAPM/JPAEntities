@@ -1,4 +1,6 @@
-package fr.univtln.m2dapm.stockmanagement.entities;
+package fr.univtln.m2dapm.stockmanagement.entities.embeddables;
+
+import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IInformation;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -8,13 +10,18 @@ import javax.persistence.Embeddable;
  */
 
 @Embeddable
-public class Information implements IInformation{
+public class Information implements IInformation {
 
     @Column(name = "NAME")
     private String name;
 
     @Column(name = "DESCRIPTION")
     private String description;
+
+    public Information(){
+
+    }
+
 
     public String getName() {
         return name;

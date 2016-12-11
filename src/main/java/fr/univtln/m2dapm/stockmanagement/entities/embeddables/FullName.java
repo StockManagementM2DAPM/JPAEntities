@@ -1,11 +1,6 @@
-package fr.univtln.m2dapm.stockmanagement.entities;
+package fr.univtln.m2dapm.stockmanagement.entities.embeddables;
 
-import fr.univtln.m2dapm.stockmanagement.interfaces.IFullName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Table;
+import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IFullName;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -23,6 +18,9 @@ public class FullName implements IFullName {
     @Column(name = "LAST_NAME")
     private String lastName;
 
+    public FullName(){
+
+    }
 
     @Override
     public String getFirstName() {

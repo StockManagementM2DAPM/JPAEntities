@@ -1,12 +1,4 @@
-package fr.univtln.m2dapm.stockmanagement.interfaces;
-
-import fr.univtln.m2dapm.stockmanagement.entities.FullName;
-import org.hibernate.annotations.Target;
-
-import javax.persistence.Access;
-import javax.persistence.AccessType;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+package fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles;
 
 /**
  * Created by Maxime Gajovski on 07/12/2016.
