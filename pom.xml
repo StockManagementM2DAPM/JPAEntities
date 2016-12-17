@@ -12,31 +12,64 @@
   <packaging>jar</packaging>
   <name>JPAEntities</name>
 
-  <repositories>
-    <!-- Repositories used as maven central proxy for faster download -->
-    <repository>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>central</id>
-      <name>libs-release</name>
-      <url>https://artifactory.lsis.univ-tln.fr/artifactory/libs-release</url>
-    </repository>
-    <repository>
-      <snapshots />
-      <id>snapshots</id>
-      <name>libs-snapshot</name>
-      <url>https://artifactory.lsis.univ-tln.fr/artifactory/libs-snapshot</url>
-    </repository>
+  <profiles>
+    <profile>
+      <id>artifactory</id>
+      <distributionManagement>
+        <repository>
+          <id>lsis-artifactory</id>
+          <name>lsis-artifactory-releases</name>
+          <url>https://artifactory.lsis.univ-tln.fr/artifactory/M22016</url>
+        </repository>
+        <snapshotRepository>
+          <id>lsis-artifactory</id>
+          <name>lsis-artifactory-snapshots</name>
+          <url>https://artifactory.lsis.univ-tln.fr/artifactory/M22016</url>
+        </snapshotRepository>
+      </distributionManagement>
 
-    <!-- Private maven repository -->
-    <repository>
-      <id>lsis-artifactory</id>
-      <name>lsis-artifactory-releases</name>
-      <url>https://artifactory.lsis.univ-tln.fr/artifactory/M22016</url>
-    </repository>
-  </repositories>
+      <repositories>
+        <!-- Repositories used as maven central proxy for faster download -->
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-release</name>
+          <url>https://artifactory.lsis.univ-tln.fr/artifactory/libs-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>https://artifactory.lsis.univ-tln.fr/artifactory/libs-snapshot</url>
+        </repository>
 
+        <!-- Private maven repository -->
+        <repository>
+          <id>lsis-artifactory</id>
+          <name>lsis-artifactory-releases</name>
+          <url>https://artifactory.lsis.univ-tln.fr/artifactory/M22016</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>plugins-release</name>
+          <url>https://artifactory.lsis.univ-tln.fr/artifactory/plugins-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>plugins-snapshot</name>
+          <url>https://artifactory.lsis.univ-tln.fr/artifactory/plugins-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
 
 
   <properties>
