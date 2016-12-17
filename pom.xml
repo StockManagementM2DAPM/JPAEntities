@@ -10,9 +10,34 @@
   <artifactId>JPAEntities</artifactId>
   <version>0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
-
   <name>JPAEntities</name>
-  <url>http://maven.apache.org</url>
+
+  <repositories>
+    <!-- Repositories used as maven central proxy for faster download -->
+    <repository>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>central</id>
+      <name>libs-release</name>
+      <url>https://artifactory.lsis.univ-tln.fr/artifactory/libs-release</url>
+    </repository>
+    <repository>
+      <snapshots />
+      <id>snapshots</id>
+      <name>libs-snapshot</name>
+      <url>https://artifactory.lsis.univ-tln.fr/artifactory/libs-snapshot</url>
+    </repository>
+
+    <!-- Private maven repository -->
+    <repository>
+      <id>lsis-artifactory</id>
+      <name>lsis-artifactory-releases</name>
+      <url>https://artifactory.lsis.univ-tln.fr/artifactory/M22016</url>
+    </repository>
+  </repositories>
+
+
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 public interface IAbstractEntity<K extends Serializable> {
 
-    Long       getId();
+    Long    getId();
     String  toString();
     boolean equals(Object o);
     int     hashCode();

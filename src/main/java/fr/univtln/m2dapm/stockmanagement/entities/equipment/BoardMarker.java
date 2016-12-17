@@ -14,4 +14,30 @@ import javax.persistence.Table;
 @DiscriminatorValue("BOARD_MARKER")
 public class BoardMarker extends AbstractEquipment implements IBoardMarker {
 
+
+    protected BoardMarker(){
+
+    }
+
+    private BoardMarker(BoardMarker.Builder boardMarkerBuilder){
+        System.out.println(boardMarkerBuilder.informationBuilder.getName());
+        System.out.println(boardMarkerBuilder.informationBuilder.getDescription());
+        this.information = boardMarkerBuilder.informationBuilder;
+    }
+
+    /* - - - - - - - - - - B U I L D E R - - - - - - - - - - */
+
+    public static class Builder extends AbstractEquipment.Builder<IBoardMarker, BoardMarker.Builder> {
+
+        @Override
+        protected Builder thisObject() {
+            return this;
+        }
+
+        public IBoardMarker build() {
+            return new BoardMarker(this);
+        }
+
+    }
+
 }

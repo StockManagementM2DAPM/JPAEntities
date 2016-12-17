@@ -1,11 +1,11 @@
 package fr.univtln.m2dapm.stockmanagement.entities;
 
-import fr.univtln.m2dapm.stockmanagement.entities.embeddables.FullName;
 import fr.univtln.m2dapm.stockmanagement.entities.embeddables.Information;
 import fr.univtln.m2dapm.stockmanagement.entities.equipment.AbstractEquipment;
 import fr.univtln.m2dapm.stockmanagement.interfaces.IClassRoom;
 import fr.univtln.m2dapm.stockmanagement.interfaces.ITeacher;
 import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IInformation;
+import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IInformationWrite;
 import fr.univtln.m2dapm.stockmanagement.interfaces.equipment.IEquipment;
 import fr.univtln.m2dapm.stockmanagement.interfaces.ISchool;
 
@@ -40,18 +40,24 @@ public class School extends AbstractEntity<Long> implements ISchool {
     @OneToMany(
             cascade = CascadeType.ALL,
             targetEntity = Teacher.class)
-//    @JoinColumn(table = "SCHOOL", name = "TEACHER_ID")
-//    @JoinColumn(name="ID")
     private Collection<ITeacher> teachers;
 
 
-    public School(){
-        information = new Information();
-        equipments  = new HashSet<>();
-        classRooms  = new HashSet<>();
-        teachers    = new HashSet<>();
+
+    /* - - - - - - - - - - C O N S T R U C T O R S - - - - - - - - - - */
+
+    protected School(){
     }
 
+    private School(School.Builder schoolBuilder){
+        this.information = schoolBuilder.informationBuilder;
+        this.equipments  = schoolBuilder.equipmentsBuilder;
+        this.classRooms  = schoolBuilder.classRoomsBuilder;
+        this.teachers    = schoolBuilder.teachersBuilder;
+    }
+
+
+    /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
 
     @Override
     public Collection<IClassRoom> getClassRooms() {
@@ -69,29 +75,83 @@ public class School extends AbstractEntity<Long> implements ISchool {
     }
 
     @Override
-    public String getName() {
-        return information.getName();
-    }
-
-    @Override
-    public IInformation setName(String name) {
-        information.setName(name);
+    public IInformation getInformation() {
         return information;
     }
 
-    @Override
-    public String getDescription() {
-        return information.getDescription();
-    }
-
-    @Override
-    public IInformation setDescription(String description) {
-        information.setDescription(description);
-        return information;
-    }
+    /* - - - - - - - - - - T O - S T R I N G - - - - - - - - - - */
 
     @Override
     public String toString() {
         return super.toString() + information.getName();
+    }
+
+
+    /* - - - - - - - - - - B U I L D E R - - - - - - - - - - */
+
+
+    public static class Builder implements IInformationWrite<Builder>
+    {
+
+        private IInformation            informationBuilder;
+        private Collection<IClassRoom>  classRoomsBuilder;
+        private Collection<IEquipment>  equipmentsBuilder;
+        private Collection<ITeacher>    teachersBuilder;
+
+        public Builder(){
+            informationBuilder = new Information();
+            equipmentsBuilder  = new HashSet<>();
+            classRoomsBuilder  = new HashSet<>();
+            teachersBuilder    = new HashSet<>();
+        }
+
+        @Override
+        public Builder setName(String name) {
+            informationBuilder.setName(name);
+            return this;
+        }
+
+        @Override
+        public Builder setDescription(String description) {
+            informationBuilder.setDescription(description);
+            return this;
+        }
+
+        public Builder addTeacher(ITeacher teacher){
+            teachersBuilder.add(teacher);
+            return this;
+        }
+
+        public Builder addTeachers(ITeacher ... teachers){
+            for(ITeacher teacher : teachers)
+                addTeacher(teacher);
+            return this;
+        }
+
+        public Builder addEquipment(IEquipment equipment){
+            equipmentsBuilder.add(equipment);
+            return this;
+        }
+
+        public Builder addEquipments(IEquipment... equipments){
+            for(IEquipment equipment: equipments)
+                addEquipment(equipment);
+            return this;
+        }
+
+        public Builder addClassRoom(IClassRoom classRoom){
+            classRoomsBuilder.add(classRoom);
+            return this;
+        }
+
+        public Builder addClassRooms(IClassRoom ... classRooms){
+            for(IClassRoom classRoom: classRooms)
+                addClassRoom(classRoom);
+            return this;
+        }
+
+        public ISchool build(){
+            return new School(this);
+        }
     }
 }

@@ -13,4 +13,29 @@ import javax.persistence.Table;
 @Entity
 @DiscriminatorValue("COMPUTER")
 public class Computer extends AbstractEquipment implements IComputer {
+
+
+    protected Computer(){
+
+    }
+
+    private Computer(Computer.Builder computerBuilder){
+        this.information = computerBuilder.informationBuilder;
+    }
+
+    /* - - - - - - - - - - B U I L D E R - - - - - - - - - - */
+
+    public static class Builder extends AbstractEquipment.Builder<IComputer, Computer.Builder> {
+
+        @Override
+        protected Computer.Builder thisObject() {
+            return this;
+        }
+
+        public IComputer build() {
+            return new Computer(this);
+        }
+
+    }
+
 }

@@ -18,9 +18,15 @@ public class FullName implements IFullName {
     @Column(name = "LAST_NAME")
     private String lastName;
 
+
+    /* - - - - - - - - - - C O N S T R U C T O R S - - - - - - - - - - */
+
     public FullName(){
 
     }
+
+
+    /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
 
     @Override
     public String getFirstName() {
@@ -42,5 +48,13 @@ public class FullName implements IFullName {
     public IFullName setLastName(String lastName) {
         this.lastName = lastName;
         return this;
+    }
+
+    /* - - - - - - - - - - T O - S T R I N G - - - - - - - - - - */
+
+    @Override
+    public String toString() {
+        return  "firstName : " + getFirstName() + "\n" +
+                "lastName : " + getLastName()   + "\n";
     }
 }
