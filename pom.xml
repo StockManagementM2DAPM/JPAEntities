@@ -52,22 +52,22 @@
           <url>https://artifactory.lsis.univ-tln.fr/artifactory/M22016</url>
         </repository>
       </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <id>central</id>
-          <name>plugins-release</name>
-          <url>https://artifactory.lsis.univ-tln.fr/artifactory/plugins-release</url>
-        </pluginRepository>
-        <pluginRepository>
-          <snapshots />
-          <id>snapshots</id>
-          <name>plugins-snapshot</name>
-          <url>https://artifactory.lsis.univ-tln.fr/artifactory/plugins-snapshot</url>
-        </pluginRepository>
-      </pluginRepositories>
+      <!--<pluginRepositories>-->
+        <!--<pluginRepository>-->
+          <!--<snapshots>-->
+            <!--<enabled>false</enabled>-->
+          <!--</snapshots>-->
+          <!--<id>central</id>-->
+          <!--<name>plugins-release</name>-->
+          <!--<url>https://artifactory.lsis.univ-tln.fr/artifactory/plugins-release</url>-->
+        <!--</pluginRepository>-->
+        <!--<pluginRepository>-->
+          <!--<snapshots />-->
+          <!--<id>snapshots</id>-->
+          <!--<name>plugins-snapshot</name>-->
+          <!--<url>https://artifactory.lsis.univ-tln.fr/artifactory/plugins-snapshot</url>-->
+        <!--</pluginRepository>-->
+      <!--</pluginRepositories>-->
     </profile>
   </profiles>
 
