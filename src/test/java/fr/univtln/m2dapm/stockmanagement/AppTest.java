@@ -1,5 +1,4 @@
 package fr.univtln.m2dapm.stockmanagement;
-
 import fr.univtln.m2dapm.stockmanagement.entities.ClassRoom;
 import fr.univtln.m2dapm.stockmanagement.entities.School;
 import fr.univtln.m2dapm.stockmanagement.entities.Teacher;
@@ -57,34 +56,40 @@ public class AppTest
 
 
         EntityTransaction transac = em.getTransaction();
+//
 
+        IEquipment computer = new Computer.Builder()
+                .setName("My computer")
+                .setDescription("This one is awsome")
+                .build();
 
-        IEquipment computer = new Computer();
-        IEquipment chalkBox = new ChalkBox();
-        IEquipment boardMarker = new BoardMarker();
+        IEquipment chalkBox = new ChalkBox.Builder()
+                .setName("Chalkbox")
+                .setDescription("White plz")
+                .build();
 
+        IEquipment boardMarker = new BoardMarker.Builder()
+                .setName("BoardMarker")
+                .setDescription("It can be useful.")
+                .build();
 
-        computer.setName("Computer");
-        chalkBox.setName("ChalkBox");
-        boardMarker.setName("BoardMarker");
+        IClassRoom classRoom = new ClassRoom.Builder()
+                .setName("U026")
+                .setDescription("Salle d'informatique")
+                .build();
 
+        ITeacher teacher = new Teacher.Builder()
+                .setFirstName("Bruno")
+                .setLastName("Emannuel")
+                .build();
 
-        IClassRoom classRoom = new ClassRoom();
-        classRoom.setName("U026");
-
-        ITeacher teacher = new Teacher();
-        teacher.setFirstName("Bruno")
-                .setLastName("Emannuel");
-
-        ISchool school = new School();
-        school.setName("Fac de la Garde");
-
-        school.getClassRooms().add(classRoom);
-        school.getEquipments().add(computer);
-        school.getEquipments().add(chalkBox);
-        school.getEquipments().add(boardMarker);
-        school.getTeachers().add(teacher);
-
+        ISchool school = new School.Builder()
+                .addClassRoom(classRoom)
+                .addTeacher(teacher)
+                .addEquipments(computer, chalkBox, boardMarker)
+                .setName("Université de Toulon")
+                .setDescription("La Garde")
+                .build();
 
         transac.begin();
         em.persist(classRoom);

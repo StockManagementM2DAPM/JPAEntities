@@ -1,6 +1,8 @@
 package fr.univtln.m2dapm.stockmanagement.entities.embeddables;
 
 import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IInformation;
+import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IInformationRead;
+import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IInformationWrite;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -10,7 +12,7 @@ import javax.persistence.Embeddable;
  */
 
 @Embeddable
-public class Information implements IInformation {
+public class Information implements IInformation{
 
     @Column(name = "NAME")
     private String name;
@@ -18,9 +20,14 @@ public class Information implements IInformation {
     @Column(name = "DESCRIPTION")
     private String description;
 
+    /* - - - - - - - - - - C O N S T R U C T O R S - - - - - - - - - - */
+
     public Information(){
 
     }
+
+
+    /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
 
 
     public String getName() {
@@ -39,5 +46,12 @@ public class Information implements IInformation {
     public IInformation setDescription(String description) {
         this.description = description;
         return this;
+    }
+
+    /* - - - - - - - - - - T O - S T R I N G - - - - - - - - - - */
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

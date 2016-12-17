@@ -3,6 +3,7 @@ package fr.univtln.m2dapm.stockmanagement.entities;
 import fr.univtln.m2dapm.stockmanagement.entities.embeddables.FullName;
 import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IFullName;
 import fr.univtln.m2dapm.stockmanagement.interfaces.ITeacher;
+import fr.univtln.m2dapm.stockmanagement.interfaces.embedabbles.IFullNameWrite;
 import org.hibernate.annotations.Target;
 
 import javax.persistence.*;
@@ -19,9 +20,17 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
     @Target(FullName.class)
     private IFullName fullName;
 
-    public Teacher(){
-        fullName = new FullName();
+
+    /* - - - - - - - - - - C O N S T R U C T O R S - - - - - - - - - - */
+
+    protected Teacher(){
     }
+
+    private Teacher(Teacher.Builder teacherBuilder){
+        this.fullName = teacherBuilder.fullNameBuilder;
+    }
+
+    /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
 
     @Override
     public String getFirstName() {
@@ -44,4 +53,42 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
         fullName.setFirstName(lastName);
         return fullName;
     }
+
+
+    /* - - - - - - - - - - T O - S T R I N G - - - - - - - - - - */
+
+    @Override
+    public String toString() {
+        return  super.toString()        + "\n" +
+                fullName.toString()     + "\n";
+    }
+
+
+    /* - - - - - - - - - - B U I L D E R - - - - - - - - - - */
+
+    public static class Builder implements IFullNameWrite<Builder> {
+
+        private IFullName fullNameBuilder;
+
+        public Builder(){
+            fullNameBuilder = new FullName();
+        }
+
+        @Override
+        public Builder setFirstName(String firstName) {
+            fullNameBuilder.setFirstName(firstName);
+            return this;
+        }
+
+        @Override
+        public Builder setLastName(String lastName) {
+            fullNameBuilder.setLastName(lastName);
+            return this;
+        }
+
+        public ITeacher build(){
+            return new Teacher(this);
+        }
+    }
+
 }

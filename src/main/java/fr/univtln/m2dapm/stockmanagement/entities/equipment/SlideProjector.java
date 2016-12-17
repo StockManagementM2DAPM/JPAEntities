@@ -12,4 +12,27 @@ import javax.persistence.Table;
 @Entity
 @DiscriminatorValue("SLIDE_ROJECTOR")
 public class SlideProjector extends AbstractEquipment implements ISlideProjector {
+
+    protected SlideProjector (){
+
+    }
+
+    private SlideProjector(SlideProjector.Builder slideProjectorBuilder){
+        this.information = slideProjectorBuilder.informationBuilder;
+    }
+
+    /* - - - - - - - - - - B U I L D E R - - - - - - - - - - */
+
+    public static class Builder extends AbstractEquipment.Builder<ISlideProjector,SlideProjector.Builder> {
+
+        @Override
+        protected SlideProjector.Builder thisObject() {
+            return this;
+        }
+
+        public ISlideProjector build() {
+            return new SlideProjector(this);
+        }
+
+    }
 }
