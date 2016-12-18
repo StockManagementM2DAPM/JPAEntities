@@ -17,6 +17,7 @@ before_script:
   - hash -r
 
 script: mvn verify -Dgpg.skip=true
+
 branches:
     only:
         - master

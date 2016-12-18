@@ -1,14 +1,14 @@
 package fr.univtln.m2dapm.stockmanagement;
-import fr.univtln.m2dapm.stockmanagement.entities.ClassRoom;
-import fr.univtln.m2dapm.stockmanagement.entities.School;
-import fr.univtln.m2dapm.stockmanagement.entities.Teacher;
-import fr.univtln.m2dapm.stockmanagement.entities.equipment.BoardMarker;
-import fr.univtln.m2dapm.stockmanagement.entities.equipment.ChalkBox;
-import fr.univtln.m2dapm.stockmanagement.entities.equipment.Computer;
-import fr.univtln.m2dapm.stockmanagement.interfaces.IClassRoom;
-import fr.univtln.m2dapm.stockmanagement.interfaces.ISchool;
-import fr.univtln.m2dapm.stockmanagement.interfaces.ITeacher;
-import fr.univtln.m2dapm.stockmanagement.interfaces.equipment.IEquipment;
+import fr.univtln.m2dapm.stockmanagement.entity.classes.premises.ClassRoom;
+import fr.univtln.m2dapm.stockmanagement.entity.classes.premises.School;
+import fr.univtln.m2dapm.stockmanagement.entity.classes.actors.Teacher;
+import fr.univtln.m2dapm.stockmanagement.entity.classes.equipments.BoardMarker;
+import fr.univtln.m2dapm.stockmanagement.entity.classes.equipments.ChalkBox;
+import fr.univtln.m2dapm.stockmanagement.entity.classes.equipments.Computer;
+import fr.univtln.m2dapm.stockmanagement.entity.interfaces.premises.IClassRoom;
+import fr.univtln.m2dapm.stockmanagement.entity.interfaces.premises.ISchool;
+import fr.univtln.m2dapm.stockmanagement.entity.interfaces.actors.ITeacher;
+import fr.univtln.m2dapm.stockmanagement.entity.interfaces.equipments.IEquipment;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -56,7 +56,6 @@ public class AppTest
 
 
         EntityTransaction transac = em.getTransaction();
-//
 
         IEquipment computer = new Computer.Builder()
                 .setName("My computer")
