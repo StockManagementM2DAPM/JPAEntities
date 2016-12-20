@@ -4,11 +4,11 @@
   <parent>
     <groupId>fr.univtln.m2dapm.stockmanagement</groupId>
     <artifactId>ParentPOM</artifactId>
-    <version>0.1</version>
+    <version>0.2-SNAPSHOT</version>
   </parent>
 
   <artifactId>JPAEntities</artifactId>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1-beanvalidation-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>JPAEntities</name>
 
