@@ -34,23 +34,23 @@ public class Information implements IInformation{
 
     /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
 
-    @Override
+
     public String getName() {
         return name;
     }
 
-    @Override
+
     public IInformation setName(String name) {
         this.name = name;
         return this;
     }
 
-    @Override
+
     public String getDescription() {
         return description;
     }
 
-    @Override
+
     public IInformation setDescription(String description) {
         this.description = description;
         return this;

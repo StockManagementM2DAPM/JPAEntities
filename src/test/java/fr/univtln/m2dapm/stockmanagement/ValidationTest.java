@@ -24,8 +24,6 @@ import static org.junit.Assert.assertEquals;
  */
 public class ValidationTest {
 
-    //TODO -> beaucoup trop de choses...
-
     private static Validator validator;
     private IFullName iFullName;
     private IInformation iInformation;
@@ -38,7 +36,7 @@ public class ValidationTest {
 
 
     /**
-     * Tests if ITeacher instance 's firstname and lastname are in good format
+     * Tests if ITeacher instance 's firstname and lastname are consistent
      */
     @Test
     public void testGoodTeacherName() {
@@ -61,8 +59,6 @@ public class ValidationTest {
         Set<ConstraintViolation<IFullName>> constraintViolations =
                 validator.validate( iFullName);
         assertEquals( 2, constraintViolations.size() );
-        assertEquals("La taille du nom doit etre comprise entre 2 et 30 caracteres",
-                constraintViolations.iterator().next().getMessage());
     }
 
 
@@ -119,7 +115,7 @@ public class ValidationTest {
         Set<ConstraintViolation<IInformation>> constraintViolations =
                 validator.validate( iInformation);
         assertEquals( 1, constraintViolations.size() );
-        assertEquals("Le nom de l'objet doit contenir entre 10 et 200 caracteres",
+        assertEquals("Le nom de l'objet doit contenir entre 4 et 200 caracteres",
                 constraintViolations.iterator().next().getMessage());
     }
 

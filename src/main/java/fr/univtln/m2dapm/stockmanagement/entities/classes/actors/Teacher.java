@@ -1,5 +1,7 @@
 package fr.univtln.m2dapm.stockmanagement.entities.classes.actors;
 
+import fr.univtln.m2dapm.stockmanagement.annotations.teachers.ValidFirstName;
+import fr.univtln.m2dapm.stockmanagement.annotations.teachers.ValidLastName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.classes.FullName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullNameWrite;
@@ -50,13 +52,13 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
     }
 
     @Override
-    public IFullName setFirstName(  String firstName) {
+    public IFullName setFirstName(  @ValidFirstName String firstName) {
        fullName.setFirstName(firstName);
         return fullName;
     }
 
     @Override
-    public IFullName setLastName( String lastName) {
+    public IFullName setLastName( @ValidLastName String lastName) {
         fullName.setFirstName(lastName);
         return fullName;
     }

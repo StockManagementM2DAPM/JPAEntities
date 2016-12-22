@@ -6,6 +6,15 @@
              version="2.0">
 
     <persistence-unit name="hibernate-h2-stock">
+        <class>fr.univtln.m2dapm.stockmanagement.entities.classes.actors.Teacher</class>
+        <class>fr.univtln.m2dapm.stockmanagement.entities.classes.premises.School</class>
+        <class>fr.univtln.m2dapm.stockmanagement.entities.classes.premises.ClassRoom</class>
+        <class>fr.univtln.m2dapm.stockmanagement.entities.classes.equipments.BoardMarker</class>
+        <class>fr.univtln.m2dapm.stockmanagement.entities.classes.equipments.ChalkBox</class>
+        <class>fr.univtln.m2dapm.stockmanagement.entities.classes.equipments.Computer</class>
+        <class>fr.univtln.m2dapm.stockmanagement.entities.classes.equipments.SlideProjector</class>
+        <class>fr.univtln.m2dapm.stockmanagement.embeddables.classes.FullName</class>
+        <class>fr.univtln.m2dapm.stockmanagement.embeddables.classes.Information</class>
 
         <properties>
 

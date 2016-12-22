@@ -129,24 +129,7 @@
       <version>3.0.0</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>fr.univtln.m2dapm.stockmanagement</groupId>
-      <artifactId>beans</artifactId>
-      <version>unknown</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>fr.univtln.m2dapm.stockmanagement</groupId>
-      <artifactId>beans</artifactId>
-      <version>unknown</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>fr.univtln.m2dapm.stockmanagement</groupId>
-      <artifactId>beans</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>fr.univtln.m2dapm.stockmanagement</groupId>
       <artifactId>beans</artifactId>

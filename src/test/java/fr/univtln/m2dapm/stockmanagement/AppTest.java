@@ -45,11 +45,11 @@ public class AppTest
     /**
      * Rigourous Test :-)
      */
-    public void testApp()
+  public void testApp()
     {
 
 
-        EntityManagerFactory emf = Persistence
+       /* EntityManagerFactory emf = Persistence
                 .createEntityManagerFactory("hibernate-h2-stock");
         EntityManager em = emf.createEntityManager();
 
@@ -91,9 +91,9 @@ public class AppTest
                 .build();
 
         transac.begin();
-        em.persist(classRoom);
-        em.persist(school);
-        transac.commit();
+        em.persist(teacher);
+        //em.persist(school);
+        transac.commit();*/
 
     }
 }
