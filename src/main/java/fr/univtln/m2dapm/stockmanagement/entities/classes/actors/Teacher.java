@@ -1,5 +1,6 @@
 package fr.univtln.m2dapm.stockmanagement.entities.classes.actors;
 
+import fr.univtln.m2dapm.stockmanagement.annotations.ValidName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.classes.FullName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullName;
 import fr.univtln.m2dapm.stockmanagement.entities.classes.AbstractEntity;
@@ -8,11 +9,13 @@ import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullNameWrite;
 import org.hibernate.annotations.Target;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Maxime Gajovski on 07/12/2016.
  */
-
 @Entity
 @Table(name ="TEACHER")
 public class Teacher extends AbstractEntity<Long> implements ITeacher{
@@ -20,7 +23,6 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
     @Embedded
     @Target(FullName.class)
     private IFullName fullName;
-
 
     /* - - - - - - - - - - C O N S T R U C T O R S - - - - - - - - - - */
 
@@ -33,6 +35,10 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
 
     /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
 
+    public IFullName getFullName() {
+        return fullName;
+    }
+
     @Override
     public String getFirstName() {
         return fullName.getFirstName();
@@ -44,13 +50,13 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
     }
 
     @Override
-    public IFullName setFirstName(String firstName) {
-        fullName.setFirstName(firstName);
+    public IFullName setFirstName(  String firstName) {
+       fullName.setFirstName(firstName);
         return fullName;
     }
 
     @Override
-    public IFullName setLastName(String lastName) {
+    public IFullName setLastName( String lastName) {
         fullName.setFirstName(lastName);
         return fullName;
     }
@@ -76,7 +82,7 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
         }
 
         @Override
-        public Builder setFirstName(String firstName) {
+        public Builder setFirstName( String firstName) {
             fullNameBuilder.setFirstName(firstName);
             return this;
         }

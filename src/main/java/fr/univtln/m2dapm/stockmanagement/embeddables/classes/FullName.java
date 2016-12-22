@@ -4,6 +4,9 @@ import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullName;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by Maxime Gajovski on 07/12/2016.
@@ -12,9 +15,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class FullName implements IFullName {
 
+    @NotNull
+    @Size(min = 2, max = 30, message = "La taille du prenom doit etre comprise entre 2 et 30 caracteres")
     @Column(name = "FIRST_NAME")
     private String firstName;
 
+    @NotNull
+    @Size(min = 2, max = 30, message = "La taille du nom doit etre comprise entre 2 et 30 caracteres")
     @Column(name = "LAST_NAME")
     private String lastName;
 

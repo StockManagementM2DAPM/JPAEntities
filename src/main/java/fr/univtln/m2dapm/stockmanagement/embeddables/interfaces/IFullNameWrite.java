@@ -1,10 +1,14 @@
 package fr.univtln.m2dapm.stockmanagement.embeddables.interfaces;
 
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by Maxime Gajovski on 17/12/2016.
  */
 public interface IFullNameWrite<K>{
 
-    K   setFirstName(String firstName);
-    K   setLastName(String lastName);
+    K   setFirstName( String firstName);
+    K   setLastName( String lastName);
 }
