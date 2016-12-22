@@ -1,6 +1,5 @@
 package fr.univtln.m2dapm.stockmanagement.entities.interfaces.actors;
 
-import fr.univtln.m2dapm.stockmanagement.annotations.ValidName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullName;
 import fr.univtln.m2dapm.stockmanagement.entities.interfaces.IAbstractEntity;
 
@@ -9,5 +8,5 @@ import fr.univtln.m2dapm.stockmanagement.entities.interfaces.IAbstractEntity;
  */
 public interface ITeacher extends IAbstractEntity<Long>, IFullName {
 
-    public IFullName getFullName();
+    IFullName getFullName();
 }

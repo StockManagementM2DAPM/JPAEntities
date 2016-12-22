@@ -1,5 +1,7 @@
 package fr.univtln.m2dapm.stockmanagement.embeddables.classes;
 
+import fr.univtln.m2dapm.stockmanagement.annotations.equipments.Description;
+import fr.univtln.m2dapm.stockmanagement.annotations.equipments.Name;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IInformation;
 
 import javax.persistence.Column;
@@ -12,14 +14,19 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Information implements IInformation{
 
+    @Name
     @Column(name = "NAME")
     private String name;
 
+    @Description
     @Column(name = "DESCRIPTION")
     private String description;
 
     /* - - - - - - - - - - C O N S T R U C T O R S - - - - - - - - - - */
 
+    /**
+     * Empty constructor
+     */
     public Information(){
 
     }
@@ -27,20 +34,23 @@ public class Information implements IInformation{
 
     /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
 
-
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public IInformation setName(String name) {
         this.name = name;
         return this;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
 
+    @Override
     public IInformation setDescription(String description) {
         this.description = description;
         return this;

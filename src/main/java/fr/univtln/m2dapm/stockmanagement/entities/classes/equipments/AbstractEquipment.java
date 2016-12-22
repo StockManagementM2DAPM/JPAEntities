@@ -1,11 +1,10 @@
 package fr.univtln.m2dapm.stockmanagement.entities.classes.equipments;
 
-import fr.univtln.m2dapm.stockmanagement.entities.classes.AbstractEntity;
 import fr.univtln.m2dapm.stockmanagement.embeddables.classes.Information;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IInformation;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IInformationWrite;
+import fr.univtln.m2dapm.stockmanagement.entities.classes.AbstractEntity;
 import fr.univtln.m2dapm.stockmanagement.entities.interfaces.equipments.IEquipment;
-
 import org.hibernate.annotations.Target;
 
 import javax.persistence.*;
@@ -29,13 +28,13 @@ public abstract class AbstractEquipment  extends AbstractEntity<Long> implements
         information = new Information();
     }
 
-//    protected AbstractEquipment()
-//    {
-//        information = new Information();
-//    }
-
 
     /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
+
+    @Override
+    public IInformation getInformation(){
+        return information;
+    }
 
     @Override
     public String getName(){

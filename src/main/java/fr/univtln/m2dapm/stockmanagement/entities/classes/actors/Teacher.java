@@ -1,17 +1,16 @@
 package fr.univtln.m2dapm.stockmanagement.entities.classes.actors;
 
-import fr.univtln.m2dapm.stockmanagement.annotations.ValidName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.classes.FullName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullName;
+import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullNameWrite;
 import fr.univtln.m2dapm.stockmanagement.entities.classes.AbstractEntity;
 import fr.univtln.m2dapm.stockmanagement.entities.interfaces.actors.ITeacher;
-import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullNameWrite;
 import org.hibernate.annotations.Target;
 
-import javax.persistence.*;
-import javax.validation.Valid;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 
 /**
  * Created by Maxime Gajovski on 07/12/2016.
@@ -35,6 +34,7 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
 
     /* - - - - - - - - - - G E T T E R S - S E T T E R S  - - - - - - - - - - */
 
+    @Override
     public IFullName getFullName() {
         return fullName;
     }

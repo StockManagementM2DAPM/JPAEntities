@@ -1,9 +1,5 @@
 package fr.univtln.m2dapm.stockmanagement.embeddables.interfaces;
 
-
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-
 /**
  * Created by Maxime Gajovski on 17/12/2016.
  */
