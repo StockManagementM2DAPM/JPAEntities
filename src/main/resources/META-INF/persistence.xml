@@ -16,8 +16,11 @@
         <class>fr.univtln.m2dapm.stockmanagement.embeddables.classes.FullName</class>
         <class>fr.univtln.m2dapm.stockmanagement.embeddables.classes.Information</class>
 
+        <validation-mode>CALLBACK</validation-mode>
+
         <properties>
 
+            <property name="javax.persistence.validation.mode" value="CALLBACK" />
             <property name="hibernate.archive.autodetection" value="class" />
             <property name="hibernate.format_sql" value="true" />
 

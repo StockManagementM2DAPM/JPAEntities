@@ -15,6 +15,7 @@ import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
+import java.util.Locale;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -25,8 +26,7 @@ import static org.junit.Assert.assertEquals;
 public class ValidationTest {
 
     private static Validator validator;
-    private IFullName iFullName;
-    private IInformation iInformation;
+    Locale frLocale = new Locale("fr","FR");
 
     @BeforeClass
     public static void setUp() {
@@ -41,9 +41,8 @@ public class ValidationTest {
     @Test
     public void testGoodTeacherName() {
         ITeacher iTeacher = new Teacher.Builder().setFirstName("Manu").setLastName("Petit").build();
-        iFullName = iTeacher.getFullName();
-        Set<ConstraintViolation<IFullName>> constraintViolations =
-                validator.validate( iFullName);
+        Set<ConstraintViolation<ITeacher>> constraintViolations =
+                validator.validate( iTeacher);
         assertEquals( 0, constraintViolations.size() );
     }
 
@@ -54,11 +53,9 @@ public class ValidationTest {
     @Test
     public void testWrongTeacherName() {
         ITeacher iTeacher = new Teacher.Builder().setFirstName("X").setLastName("P").build();
-        IFullName iFullName;
-        iFullName = iTeacher.getFullName();
-        Set<ConstraintViolation<IFullName>> constraintViolations =
-                validator.validate( iFullName);
-        assertEquals( 2, constraintViolations.size() );
+        Set<ConstraintViolation<ITeacher>> constraintViolations =
+                validator.validate( iTeacher);
+        assertEquals( 1, constraintViolations.size() );
     }
 
 
@@ -72,10 +69,8 @@ public class ValidationTest {
                 .setDescription("This one is awsome")
                 .build();
 
-        iInformation = computer.getInformation();
-
-        Set<ConstraintViolation<IInformation>> constraintViolations =
-                validator.validate( iInformation);
+        Set<ConstraintViolation<IEquipment>> constraintViolations =
+                validator.validate( computer);
         assertEquals( 0, constraintViolations.size() );
     }
 
@@ -90,13 +85,11 @@ public class ValidationTest {
                 .setDescription("NO")
                 .build();
 
-        iInformation = b.getInformation();
+        System.out.println(b.getName().length());
 
-        Set<ConstraintViolation<IInformation>> constraintViolations =
-                validator.validate( iInformation);
+        Set<ConstraintViolation<IEquipment>> constraintViolations =
+                validator.validate( b);
         assertEquals( 1, constraintViolations.size() );
-        assertEquals("La description de l'objet doit etre comprise entre 10 et 200 caracteres",
-                constraintViolations.iterator().next().getMessage());
     }
 
 
@@ -110,13 +103,9 @@ public class ValidationTest {
                 .setDescription("I am just a slideBoard")
                 .build();
 
-        iInformation = slide.getInformation();
-
-        Set<ConstraintViolation<IInformation>> constraintViolations =
-                validator.validate( iInformation);
+        Set<ConstraintViolation<IEquipment>> constraintViolations =
+                validator.validate( slide);
         assertEquals( 1, constraintViolations.size() );
-        assertEquals("Le nom de l'objet doit contenir entre 4 et 200 caracteres",
-                constraintViolations.iterator().next().getMessage());
     }
 
 }

@@ -2,7 +2,7 @@ package fr.univtln.m2dapm.stockmanagement.entities.classes.actors;
 
 import fr.univtln.m2dapm.stockmanagement.annotations.teachers.ValidFirstName;
 import fr.univtln.m2dapm.stockmanagement.annotations.teachers.ValidLastName;
-import fr.univtln.m2dapm.stockmanagement.embeddables.classes.FullName;
+import fr.univtln.m2dapm.stockmanagement.beanvalidation.annotations.FullName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullNameWrite;
 import fr.univtln.m2dapm.stockmanagement.entities.classes.AbstractEntity;
@@ -12,6 +12,7 @@ import org.hibernate.annotations.Target;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 
 /**
@@ -21,8 +22,10 @@ import javax.persistence.Table;
 @Table(name ="TEACHER")
 public class Teacher extends AbstractEntity<Long> implements ITeacher{
 
+    @Valid
+    @FullName
     @Embedded
-    @Target(FullName.class)
+    @Target(fr.univtln.m2dapm.stockmanagement.embeddables.classes.FullName.class)
     private IFullName fullName;
 
     /* - - - - - - - - - - C O N S T R U C T O R S - - - - - - - - - - */
@@ -80,7 +83,7 @@ public class Teacher extends AbstractEntity<Long> implements ITeacher{
         private IFullName fullNameBuilder;
 
         public Builder(){
-            fullNameBuilder = new FullName();
+            fullNameBuilder = new fr.univtln.m2dapm.stockmanagement.embeddables.classes.FullName();
         }
 
         @Override

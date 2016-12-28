@@ -8,6 +8,7 @@ import fr.univtln.m2dapm.stockmanagement.entities.interfaces.equipments.IEquipme
 import org.hibernate.annotations.Target;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 
 /**
  * Created by Maxime Gajovski on 07/12/2016.
@@ -19,6 +20,8 @@ import javax.persistence.*;
 @Table(name = "EQUIPMENT")
 public abstract class AbstractEquipment  extends AbstractEntity<Long> implements IEquipment {
 
+    @Valid
+    @fr.univtln.m2dapm.stockmanagement.beanvalidation.annotations.Information
     @Embedded
     @Target(Information.class)
     protected IInformation information;

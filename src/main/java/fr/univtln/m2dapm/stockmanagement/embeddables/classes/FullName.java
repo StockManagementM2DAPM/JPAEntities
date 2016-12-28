@@ -1,7 +1,5 @@
 package fr.univtln.m2dapm.stockmanagement.embeddables.classes;
 
-import fr.univtln.m2dapm.stockmanagement.annotations.teachers.ValidFirstName;
-import fr.univtln.m2dapm.stockmanagement.annotations.teachers.ValidLastName;
 import fr.univtln.m2dapm.stockmanagement.embeddables.interfaces.IFullName;
 
 import javax.persistence.Column;
@@ -14,11 +12,9 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class FullName implements IFullName {
 
-    @ValidFirstName
     @Column(name = "FIRST_NAME")
     private String firstName;
 
-    @ValidLastName
     @Column(name = "LAST_NAME")
     private String lastName;
 

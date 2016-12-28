@@ -14,11 +14,9 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Information implements IInformation{
 
-    @Name
     @Column(name = "NAME")
     private String name;
 
-    @Description
     @Column(name = "DESCRIPTION")
     private String description;
 
